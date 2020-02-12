@@ -16,6 +16,7 @@ class TaskController extends Controller
     public function index(Request $request, Task $task)
     {
         // get all the tasks based on current user id
+        //test controller
         $allTasks = $task->whereIn('user_id', $request->user())->with('user');
         $tasks = $allTasks->orderBy('created_at', 'desc')->take(10)->get();
         // return json response
